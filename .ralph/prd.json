@@ -1,0 +1,22 @@
+[
+  {
+    "category": "setup",
+    "description": "Initialize Next.js app in apps/web using latest stack",
+    "steps": [
+      "Run pnpm dev",
+      "Load / and see Next.js default page",
+      "No console errors"
+    ],
+    "passes": false
+  },
+  {
+    "category": "frontend",
+    "description": "Add base app shell with Tailwind + shadcn/ui layout",
+    "steps": [
+      "Run pnpm dev",
+      "Load / and see header + content shell",
+      "No console errors"
+    ],
+    "passes": false
+  }
+]
