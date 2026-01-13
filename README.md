@@ -31,5 +31,5 @@ Starter template for running a Ralph loop with Codex CLI.
 Use Codex to transform `.ralph/prd.md` into `.ralph/prd.json`:
 
 ```bash
-codex "@.ralph/prd.md Convert into JSON array items with category, description, steps, passes:false. Keep steps as verifiable checks. Output JSON only."
+codex "@.ralph/prd.md Convert into JSON with project, version, scope, and features[]. Each feature has id, category, description, priority, steps, passes:false. Keep steps as verifiable checks. Output JSON only."
 ```

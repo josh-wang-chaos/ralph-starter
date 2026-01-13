@@ -1,22 +1,31 @@
-[
-  {
-    "category": "setup",
-    "description": "Initialize Next.js app in apps/web using latest stack",
-    "steps": [
-      "Run pnpm dev",
-      "Load / and see Next.js default page",
-      "No console errors"
-    ],
-    "passes": false
-  },
-  {
-    "category": "frontend",
-    "description": "Add base app shell with Tailwind + shadcn/ui layout",
-    "steps": [
-      "Run pnpm dev",
-      "Load / and see header + content shell",
-      "No console errors"
-    ],
-    "passes": false
-  }
-]
+{
+  "project": "ralph-starter",
+  "version": "0.1.0",
+  "scope": "frontend-template",
+  "features": [
+    {
+      "id": "SETUP-001",
+      "category": "setup",
+      "description": "Initialize Next.js app in apps/web using latest stack",
+      "priority": 1,
+      "steps": [
+        "Run pnpm dev",
+        "Load / and see Next.js default page",
+        "No console errors"
+      ],
+      "passes": false
+    },
+    {
+      "id": "UI-001",
+      "category": "frontend",
+      "description": "Add base app shell with Tailwind + shadcn/ui layout",
+      "priority": 2,
+      "steps": [
+        "Run pnpm dev",
+        "Load / and see header + content shell",
+        "No console errors"
+      ],
+      "passes": false
+    }
+  ]
+}

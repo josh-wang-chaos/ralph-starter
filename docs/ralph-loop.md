@@ -25,10 +25,14 @@ Ralph runs Codex in a loop. It reads all files in `.ralph`, picks one task from 
 
 ## PRD Format
 
-JSON array of items. Each item has:
+Top-level object with `project`, `version`, `scope`, and `features`.
 
+Each feature item has:
+
+- `id`
 - `category`
 - `description`
+- `priority`
 - `steps`
 - `passes`
 
@@ -36,12 +40,21 @@ Schema example:
 
 ```json
 {
-  "category": "functional",
-  "description": "Short, clear outcome",
-  "steps": [
-    "Step to verify result"
-  ],
-  "passes": false
+  "project": "my-app",
+  "version": "0.1.0",
+  "scope": "short-scope-name",
+  "features": [
+    {
+      "id": "FEAT-001",
+      "category": "functional",
+      "description": "Short, clear outcome",
+      "priority": 1,
+      "steps": [
+        "Step to verify result"
+      ],
+      "passes": false
+    }
+  ]
 }
 ```
 
@@ -49,8 +62,10 @@ Sample entry (Next.js + Turborepo):
 
 ```json
 {
+  "id": "UI-001",
   "category": "frontend",
   "description": "Add base app shell with Tailwind + shadcn/ui layout",
+  "priority": 2,
   "steps": [
     "Run pnpm dev",
     "Load / and see header + content shell",
