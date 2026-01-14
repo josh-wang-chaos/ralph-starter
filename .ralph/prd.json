@@ -42,7 +42,7 @@
         "On success, set httpOnly cookie \"session\" with the token (default localhost settings)",
         "On failure, show a clear inline error message"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": "PROXY-001",

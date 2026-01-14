@@ -1,2 +1,3 @@
 INIT-001 done; next app in apps/web; lint/typecheck/test/build pass
 ENV-001 done; env helper + dev health page; lint/typecheck/test/build pass
+AUTH-001 done; login page + auth proxy; lint/typecheck/test/build pass
