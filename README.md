@@ -26,10 +26,12 @@ Starter template for running a Ralph loop with Codex CLI.
 - `docs/ralph-loop.md` for PRD schema and loop details.
 - `docs/stack.md` for the latest stack.
 
-## PRD Conversion Tip
+## PRD JSON Tip
 
-Use the converter to transform `.ralph/prd.md` into `.ralph/prd.json`:
+On first run, share `.ralph/prd.md` and let the agent:
 
-```bash
-./.ralph/convert-prd.sh
-```
+1. Analyze requirements.
+2. Ask clarifying questions.
+3. Propose a detailed, executable `.ralph/prd.json` step by step.
+
+Keep steps granular (3–6 small, verifiable steps per feature).

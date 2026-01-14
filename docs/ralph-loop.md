@@ -98,3 +98,30 @@ Append to `.ralph/progress.txt` each iteration:
 - Blockers or notes
 
 Keep entries concise.
+
+---
+
+## PRD JSON Flow
+
+On first run, share `.ralph/prd.md` and let the agent:
+
+1. Analyze requirements.
+2. Ask clarifying questions.
+3. Propose a detailed, executable `.ralph/prd.json` step by step.
+
+Keep steps granular (3–6 small, verifiable steps per feature).
+
+---
+
+## Standard Init (Next.js)
+
+Use the official Next.js app router scaffold:
+
+```bash
+pnpm create next-app@latest apps/web --ts --tailwind --eslint --app --src-dir --import-alias "@/*"
+```
+
+Verify:
+
+- `apps/web/package.json` exists
+- `pnpm --dir apps/web dev` renders `/`
