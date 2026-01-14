@@ -1,29 +1,72 @@
 {
-  "project": "ralph-starter",
-  "version": "0.1.0",
-  "scope": "frontend-template",
+  "project": "affiliate-portal",
+  "version": "0.01",
+  "scope": "local-demo",
   "features": [
     {
-      "id": "SETUP-001",
+      "id": "INIT-001",
       "category": "setup",
-      "description": "Initialize Next.js app in apps/web using latest stack",
+      "description": "Initialize Next.js app in apps/web with App Router, TypeScript, Tailwind",
       "priority": 1,
       "steps": [
-        "Run pnpm dev",
-        "Load / and see Next.js default page",
-        "No console errors"
+        "Run pnpm create next-app@latest apps/web --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\"",
+        "Confirm apps/web/package.json exists and app router is enabled",
+        "Run pnpm --dir apps/web dev and load /",
+        "Verify default Next.js page renders with no console errors"
+      ],
+      "passes": true
+    },
+    {
+      "id": "ENV-001",
+      "category": "setup",
+      "description": "Local-only environment config for legacy base URL",
+      "priority": 1,
+      "steps": [
+        "Add .env.local with LEGACY_API_BASE_URL=http://localhost:4000",
+        "Create config helper to read LEGACY_API_BASE_URL",
+        "Log or surface config in a dev-only health page",
+        "Verify config loads when running pnpm --dir apps/web dev"
+      ],
+      "passes": false
+    },
+    {
+      "id": "AUTH-001",
+      "category": "authentication",
+      "description": "Login page with standard request/response and cookie session (local demo)",
+      "priority": 2,
+      "steps": [
+        "Create /login route with email + password fields only",
+        "Define login request shape: {\"email\":\"...\",\"password\":\"...\"}",
+        "Define login response shape: {\"user\":{\"id\":\"...\",\"email\":\"...\",\"name\":\"...\"},\"session\":{\"token\":\"...\",\"expiresAt\":\"...\"}}",
+        "Create /api/auth/login route to proxy to LEGACY_API_BASE_URL",
+        "On success, set httpOnly cookie \"session\" with the token (default localhost settings)",
+        "On failure, show a clear inline error message"
+      ],
+      "passes": false
+    },
+    {
+      "id": "PROXY-001",
+      "category": "integration",
+      "description": "Legacy API proxy route (local demo)",
+      "priority": 2,
+      "steps": [
+        "Create /api/legacy/[...path] proxy route",
+        "Forward method, headers, and body to LEGACY_API_BASE_URL",
+        "Return legacy status and body as-is",
+        "Verify a sample request hits legacy API and returns data"
       ],
       "passes": false
     },
     {
       "id": "UI-001",
       "category": "frontend",
-      "description": "Add base app shell with Tailwind + shadcn/ui layout",
-      "priority": 2,
+      "description": "Basic dashboard demo page after login",
+      "priority": 3,
       "steps": [
-        "Run pnpm dev",
-        "Load / and see header + content shell",
-        "No console errors"
+        "Create /dashboard route with a simple layout shell",
+        "Gate /dashboard behind presence of session cookie",
+        "Fetch one real field via /api/legacy and render it",
+        "Verify /dashboard loads after login with no console errors"
       ],
       "passes": false
     }
