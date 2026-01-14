@@ -1,6 +1,5 @@
 import { Cormorant_Garamond, Space_Grotesk } from "next/font/google";
-import { cookies, headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -35,13 +34,6 @@ const parseLegacyPayload = async (response: Response) => {
 };
 
 export default async function DashboardPage() {
-  const cookieStore = await cookies();
-  const sessionToken = cookieStore.get("session")?.value;
-
-  if (!sessionToken) {
-    redirect("/login");
-  }
-
   const baseUrl = await getBaseUrl();
   let legacyStatus: string | null = null;
   let legacyDetail: string | null = null;
@@ -50,9 +42,6 @@ export default async function DashboardPage() {
     try {
       const response = await fetch(`${baseUrl}/api/legacy/health`, {
         method: "GET",
-        headers: {
-          cookie: cookieStore.toString(),
-        },
         cache: "no-store",
       });
 
@@ -114,10 +103,10 @@ export default async function DashboardPage() {
               </div>
               <div className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-5">
                 <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">
-                  Session
+                  Access
                 </p>
                 <p className="mt-2 text-sm text-zinc-200">
-                  Active session detected. Proxy requests include your cookie.
+                  Demo mode. No login required to view this dashboard.
                 </p>
               </div>
             </div>
