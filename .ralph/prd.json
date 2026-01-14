@@ -55,7 +55,7 @@
         "Return legacy status and body as-is",
         "Verify a sample request hits legacy API and returns data"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": "UI-001",
