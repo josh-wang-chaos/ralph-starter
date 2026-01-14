@@ -28,8 +28,8 @@ Starter template for running a Ralph loop with Codex CLI.
 
 ## PRD Conversion Tip
 
-Use Codex to transform `.ralph/prd.md` into `.ralph/prd.json`:
+Use the converter to transform `.ralph/prd.md` into `.ralph/prd.json`:
 
 ```bash
-codex "@.ralph/prd.md Convert into JSON with project, version, scope, and features[]. Each feature has id, category, description, priority, steps, passes:false. Keep steps as verifiable checks. Output JSON only."
+./.ralph/convert-prd.sh
 ```
