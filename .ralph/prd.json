@@ -27,7 +27,7 @@
         "Log or surface config in a dev-only health page",
         "Verify config loads when running pnpm --dir apps/web dev"
       ],
-      "passes": false
+      "passes": true
     },
     {
       "id": "AUTH-001",
