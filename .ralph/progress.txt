@@ -2,3 +2,4 @@ INIT-001 done; next app in apps/web; lint/typecheck/test/build pass
 ENV-001 done; env helper + dev health page; lint/typecheck/test/build pass
 AUTH-001 done; login page + auth proxy; lint/typecheck/test/build pass
 PROXY-001 done; legacy proxy route; lint/typecheck/test/build pass
+UI-001 done; dashboard + gate + legacy fetch; lint/typecheck/test/build pass

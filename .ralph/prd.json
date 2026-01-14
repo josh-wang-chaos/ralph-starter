@@ -68,7 +68,7 @@
         "Fetch one real field via /api/legacy and render it",
         "Verify /dashboard loads after login with no console errors"
       ],
-      "passes": false
+      "passes": true
     }
   ]
 }
